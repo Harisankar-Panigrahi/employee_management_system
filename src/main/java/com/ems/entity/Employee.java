@@ -28,7 +28,7 @@ public class Employee {
     @Column(unique = true)
     private String phone;
 
-
     private String designation;
+
     private double salary;
 }
