@@ -3,7 +3,9 @@ package com.ems.controller;
 import com.ems.dto.EmployeeRequest;
 import com.ems.dto.EmployeeResponse;
 import com.ems.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService employeeService;
     @PostMapping
-    public EmployeeResponse createEmployee(@RequestBody EmployeeRequest request) {
+    public EmployeeResponse createEmployee(@Valid @RequestBody EmployeeRequest request) {
         return employeeService.createEmployee(request);
 }
 
@@ -29,12 +31,12 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public EmployeeResponse updateEmployee(@PathVariable Long id,@RequestBody EmployeeRequest request) {
+    public EmployeeResponse updateEmployee(@PathVariable Long id,@Valid @RequestBody EmployeeRequest request) {
         return employeeService.updateEmployee(id,request);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteEmployee(@PathVariable Long id){
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id){
         return employeeService.deleteEmployeeById(id);
     }
 }

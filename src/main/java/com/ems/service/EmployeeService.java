@@ -2,6 +2,7 @@ package com.ems.service;
 
 import com.ems.dto.EmployeeRequest;
 import com.ems.dto.EmployeeResponse;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface EmployeeService {
     List<EmployeeResponse> getAllEmployees();
     EmployeeResponse findEmployeeById(Long id);
     EmployeeResponse updateEmployee(Long id, EmployeeRequest request);
-    String deleteEmployeeById(Long id);
+    ResponseEntity<String> deleteEmployeeById(Long id);
 }
