@@ -29,4 +29,5 @@ public class EmployeeRequest {
 
     @Positive(message = "Salary must be greater than zero")
     private BigDecimal salary;
+
 }

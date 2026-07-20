@@ -33,4 +33,7 @@ public class Employee {
     private String designation;
 
     private BigDecimal salary;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
 }
