@@ -5,11 +5,14 @@ import com.ems.user.Role;
 import com.ems.user.User;
 import com.ems.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -46,7 +49,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponse login(LoginRequest request) {
 
+        log.info("Login attempt for {}", request.getEmail());
+
         try {
+
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             request.getEmail(),
@@ -54,21 +60,21 @@ public class AuthServiceImpl implements AuthService {
                     )
             );
 
-            System.out.println("Authentication Successful");
+            log.info("Authentication successful for {}", request.getEmail());
 
-        } catch (Exception e) {
-            e.printStackTrace();   // <-- VERY IMPORTANT
+        } catch (AuthenticationException e) {
+
+            log.warn("Invalid login attempt for {}", request.getEmail());
+
             throw e;
         }
 
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow();
 
-        System.out.println("Request Password = " + request.getPassword());
-        System.out.println("DB Password = " + user.getPassword());
-        System.out.println(passwordEncoder.matches(request.getPassword(), user.getPassword()));
-
         String token = jwtService.generateToken(user);
+
+        log.info("JWT generated for {}", request.getEmail());
 
         return AuthResponse.builder()
                 .message("Login successful")

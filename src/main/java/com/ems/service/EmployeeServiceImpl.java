@@ -78,7 +78,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
 
         Page<Employee> employees = employeeRepository.findAll(pageable);
-
+        log.info("Fetching employees. Page={}, Size={}, SortBy={}",
+                page, size, sortBy);
         return employees.map(employee -> EmployeeResponse.builder()
                 .id(employee.getId())
                 .photoUrl(employee.getPhotoUrl())
@@ -92,12 +93,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeResponse findEmployeeById(Long id) {
         Employee employee = getEmployeeByIdOrThrow(id);
+        log.info("Fetching employee with ID: {}", id);
         return mapToResponse(employee);
     }
 
     @Override
     public List<EmployeeResponse> searchEmployees(String name) {
-
+        log.info("Searching employees with name: {}", name);
         return employeeRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name,name)
                 .stream()
                 .map(employee -> EmployeeResponse.builder()
@@ -159,9 +161,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         );
 
         employee.setPhotoUrl(fileName);
-
+        log.info("Uploading photo for employee {}", id);
         Employee savedEmployee = employeeRepository.save(employee);
-
+        log.info("Photo uploaded successfully for employee {}", id);
         return EmployeeResponse.builder()
                 .id(savedEmployee.getId())
                 .firstName(savedEmployee.getFirstName())
@@ -186,7 +188,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (!resource.exists()) {
             throw new RuntimeException("Photo not found");
         }
-
+        log.info("Fetching photo for employee {}", id);
         return resource;
     }
 }
