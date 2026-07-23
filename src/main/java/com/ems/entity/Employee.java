@@ -3,6 +3,8 @@ package com.ems.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "employees")
 @Getter
@@ -30,5 +32,8 @@ public class Employee {
 
     private String designation;
 
-    private double salary;
+    private BigDecimal salary;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
 }

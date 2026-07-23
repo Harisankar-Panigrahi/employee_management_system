@@ -1,16 +1,37 @@
 package com.ems.service;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import com.ems.dto.EmployeeRequest;
 import com.ems.dto.EmployeeResponse;
 import com.ems.entity.Employee;
+import com.ems.exception.EmployeeNotFoundException;
 import com.ems.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 
 import static java.util.Arrays.stream;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
@@ -18,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private Employee getEmployeeByIdOrThrow(Long id) {
         return employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id: " + id));
     }
     private EmployeeResponse mapToResponse(Employee employee) {
         return EmployeeResponse.builder()
@@ -27,6 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .lastName(employee.getLastName())
                 .email(employee.getEmail())
                 .designation(employee.getDesignation())
+                .photoUrl(employee.getPhotoUrl())
                 .build();
     }
     @Override
@@ -40,30 +62,55 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .salary(request.getSalary())
                 .build();
 
+        log.info("Creating employee with email: {}", request.getEmail());
+
         Employee savedEmployee = employeeRepository.save(employee);
+
+        log.info("Employee created successfully with ID: {}", savedEmployee.getId());
         return mapToResponse(savedEmployee);
 
 
     }
 
     @Override
-    public List<EmployeeResponse> getAllEmployees() {
-        return employeeRepository.findAll()
+    public Page<EmployeeResponse> getAllEmployees(int page, int size, String sortBy) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+
+        Page<Employee> employees = employeeRepository.findAll(pageable);
+        log.info("Fetching employees. Page={}, Size={}, SortBy={}",
+                page, size, sortBy);
+        return employees.map(employee -> EmployeeResponse.builder()
+                .id(employee.getId())
+                .photoUrl(employee.getPhotoUrl())
+                .firstName(employee.getFirstName())
+                .lastName(employee.getLastName())
+                .email(employee.getEmail())
+                .designation(employee.getDesignation())
+                .build());
+    }
+
+    @Override
+    public EmployeeResponse findEmployeeById(Long id) {
+        Employee employee = getEmployeeByIdOrThrow(id);
+        log.info("Fetching employee with ID: {}", id);
+        return mapToResponse(employee);
+    }
+
+    @Override
+    public List<EmployeeResponse> searchEmployees(String name) {
+        log.info("Searching employees with name: {}", name);
+        return employeeRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name,name)
                 .stream()
                 .map(employee -> EmployeeResponse.builder()
                         .id(employee.getId())
+                        .photoUrl(employee.getPhotoUrl())
                         .firstName(employee.getFirstName())
                         .lastName(employee.getLastName())
                         .email(employee.getEmail())
                         .designation(employee.getDesignation())
                         .build())
                 .toList();
-    }
-
-    @Override
-    public EmployeeResponse findEmployeeById(Long id) {
-        Employee employee = getEmployeeByIdOrThrow(id);
-        return mapToResponse(employee);
     }
 
     @Override
@@ -76,16 +123,72 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setDesignation(request.getDesignation());
         employee.setSalary(request.getSalary());
 
+        log.info("Updating employee with ID: {}", id);
         Employee updateEmployee = employeeRepository.save(employee);
+        log.info("Employee {} updated successfully", id);
 
         return mapToResponse(updateEmployee);
     }
 
     @Override
-    public String deleteEmployeeById(Long id) {
+    public ResponseEntity<String> deleteEmployeeById(Long id) {
         Employee employee = getEmployeeByIdOrThrow(id);
-       employeeRepository.delete(employee);
-        return "Employee Deleted sucessfully";
+
+        log.info("Deleting employee with ID: {}", id);
+        employeeRepository.delete(employee);
+        log.info("Employee {} deleted successfully", id);
+        return ResponseEntity.ok("Employee deleted successfully");
     }
 
+    @Override
+    public EmployeeResponse uploadPhoto(Long id, MultipartFile file) throws IOException {
+
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+
+        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
+
+        Path uploadPath = Paths.get("uploads");
+
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        Files.copy(
+                file.getInputStream(),
+                uploadPath.resolve(fileName),
+                StandardCopyOption.REPLACE_EXISTING
+        );
+
+        employee.setPhotoUrl(fileName);
+        log.info("Uploading photo for employee {}", id);
+        Employee savedEmployee = employeeRepository.save(employee);
+        log.info("Photo uploaded successfully for employee {}", id);
+        return EmployeeResponse.builder()
+                .id(savedEmployee.getId())
+                .firstName(savedEmployee.getFirstName())
+                .lastName(savedEmployee.getLastName())
+                .email(savedEmployee.getEmail())
+                .designation(savedEmployee.getDesignation())
+                .photoUrl(savedEmployee.getPhotoUrl())
+                .build();
+    }
+
+    @Override
+    public Resource getEmployeePhoto(Long id) throws IOException {
+
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+
+        Path path = Paths.get("uploads")
+                .resolve(employee.getPhotoUrl());
+
+        Resource resource = new UrlResource(path.toUri());
+
+        if (!resource.exists()) {
+            throw new RuntimeException("Photo not found");
+        }
+        log.info("Fetching photo for employee {}", id);
+        return resource;
+    }
 }
