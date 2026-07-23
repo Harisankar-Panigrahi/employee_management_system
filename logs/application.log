@@ -24,11 +24,11 @@
 2026-07-23 19:43:28 WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
 2026-07-23 19:43:28 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-07-23 19:43:29 INFO  com.ems.EmployeeManagementSystemApplicationTests - Started EmployeeManagementSystemApplicationTests in 8.483 seconds (process running for 9.983)
-2026-07-23 19:43:30 INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.ems.service.EmployeeControllerTest]: EmployeeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-07-23 19:43:30 INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.ems.EmployeeManagementSystemApplication for test class com.ems.service.EmployeeControllerTest
+2026-07-23 19:43:30 INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.ems.controller.EmployeeControllerTest]: EmployeeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-23 19:43:30 INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.ems.EmployeeManagementSystemApplication for test class com.ems.controller.EmployeeControllerTest
 2026-07-23 19:43:30 INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
-2026-07-23 19:43:30 INFO  com.ems.service.EmployeeControllerTest - Starting EmployeeControllerTest using Java 17.0.12 with PID 16592 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
-2026-07-23 19:43:30 INFO  com.ems.service.EmployeeControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-07-23 19:43:30 INFO  com.ems.controller.EmployeeControllerTest - Starting EmployeeControllerTest using Java 17.0.12 with PID 16592 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
+2026-07-23 19:43:30 INFO  com.ems.controller.EmployeeControllerTest - No active profile set, falling back to 1 default profile: "default"
 2026-07-23 19:43:30 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 2026-07-23 19:43:30 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
 2026-07-23 19:43:31 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
@@ -53,7 +53,7 @@
 2026-07-23 19:43:32 INFO  org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
 2026-07-23 19:43:32 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
 2026-07-23 19:43:32 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
-2026-07-23 19:43:32 INFO  com.ems.service.EmployeeControllerTest - Started EmployeeControllerTest in 2.07 seconds (process running for 12.83)
+2026-07-23 19:43:32 INFO  com.ems.controller.EmployeeControllerTest - Started EmployeeControllerTest in 2.07 seconds (process running for 12.83)
 2026-07-23 19:43:32 WARN  org.springframework.data.web.config.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
@@ -71,3 +71,149 @@
 2026-07-23 19:43:33 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-07-23 19:43:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2026-07-23 19:43:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-07-23 19:51:30 INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-07-23 19:51:30 INFO  com.ems.EmployeeManagementSystemApplicationTests - Starting EmployeeManagementSystemApplicationTests using Java 17.0.12 with PID 6492 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
+2026-07-23 19:51:30 INFO  com.ems.EmployeeManagementSystemApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-07-23 19:51:31 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-23 19:51:31 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 2 JPA repository interfaces.
+2026-07-23 19:51:32 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-23 19:51:32 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-07-23 19:51:32 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-23 19:51:33 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-23 19:51:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-23 19:51:33 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c6c84fa
+2026-07-23 19:51:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-23 19:51:33 INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-23 19:51:35 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-23 19:51:35 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:51:35 INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-23 19:51:35 WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-23 19:51:36 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-23 19:51:37 INFO  com.ems.EmployeeManagementSystemApplicationTests - Started EmployeeManagementSystemApplicationTests in 7.445 seconds (process running for 8.742)
+2026-07-23 19:51:37 INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.ems.controller.EmployeeControllerTest]: EmployeeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-23 19:51:37 INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.ems.EmployeeManagementSystemApplication for test class com.ems.controller.EmployeeControllerTest
+2026-07-23 19:51:37 INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2026-07-23 19:51:37 INFO  com.ems.controller.EmployeeControllerTest - Starting EmployeeControllerTest using Java 17.0.12 with PID 6492 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
+2026-07-23 19:51:37 INFO  com.ems.controller.EmployeeControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-07-23 19:51:38 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-23 19:51:38 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+2026-07-23 19:51:38 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-23 19:51:38 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-23 19:51:38 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-23 19:51:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-07-23 19:51:38 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2be9425f
+2026-07-23 19:51:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-07-23 19:51:38 INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-23 19:51:38 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-23 19:51:38 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:51:38 INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-23 19:51:38 WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-23 19:51:38 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-23 19:51:39 INFO  org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-23 19:51:39 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2026-07-23 19:51:39 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 4 ms
+2026-07-23 19:51:39 INFO  com.ems.controller.EmployeeControllerTest - Started EmployeeControllerTest in 1.564 seconds (process running for 10.877)
+2026-07-23 19:51:39 WARN  org.springframework.data.web.config.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Deleting employee with ID: 1
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Employee 1 deleted successfully
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Fetching employee with ID: 1
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Updating employee with ID: 1
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Employee 1 updated successfully
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Creating employee with email: john@example.com
+2026-07-23 19:51:40 INFO  com.ems.service.EmployeeServiceImpl - Employee created successfully with ID: 1
+2026-07-23 19:51:40 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:51:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-23 19:51:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-23 19:51:40 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:51:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-07-23 19:51:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-07-23 19:52:05 INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-07-23 19:52:05 INFO  com.ems.EmployeeManagementSystemApplicationTests - Starting EmployeeManagementSystemApplicationTests using Java 17.0.12 with PID 16644 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
+2026-07-23 19:52:05 INFO  com.ems.EmployeeManagementSystemApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-07-23 19:52:06 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-23 19:52:06 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 2 JPA repository interfaces.
+2026-07-23 19:52:07 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-23 19:52:07 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2026-07-23 19:52:07 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-23 19:52:07 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-23 19:52:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-23 19:52:08 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@70ce2fb2
+2026-07-23 19:52:08 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-23 19:52:08 INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-23 19:52:09 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-23 19:52:09 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:52:10 INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-23 19:52:10 WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-23 19:52:10 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-23 19:52:11 INFO  com.ems.EmployeeManagementSystemApplicationTests - Started EmployeeManagementSystemApplicationTests in 6.718 seconds (process running for 8.027)
+2026-07-23 19:52:11 INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.ems.controller.EmployeeControllerTest]: EmployeeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-23 19:52:11 INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.ems.EmployeeManagementSystemApplication for test class com.ems.controller.EmployeeControllerTest
+2026-07-23 19:52:11 INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2026-07-23 19:52:11 INFO  com.ems.controller.EmployeeControllerTest - Starting EmployeeControllerTest using Java 17.0.12 with PID 16644 (started by phari in C:\Users\phari\Downloads\employee-management-system\employee-management-system)
+2026-07-23 19:52:11 INFO  com.ems.controller.EmployeeControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-07-23 19:52:12 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-23 19:52:12 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2026-07-23 19:52:12 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-23 19:52:12 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-23 19:52:12 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-23 19:52:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-07-23 19:52:12 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41f05f1
+2026-07-23 19:52:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-07-23 19:52:12 INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0.46
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-23 19:52:12 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-23 19:52:12 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:52:12 INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-23 19:52:12 WARN  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-23 19:52:12 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-23 19:52:13 INFO  org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-23 19:52:13 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2026-07-23 19:52:13 INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 4 ms
+2026-07-23 19:52:13 INFO  com.ems.controller.EmployeeControllerTest - Started EmployeeControllerTest in 1.521 seconds (process running for 10.117)
+2026-07-23 19:52:13 WARN  org.springframework.data.web.config.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Deleting employee with ID: 1
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Employee 1 deleted successfully
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Fetching employee with ID: 1
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Updating employee with ID: 1
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Employee 1 updated successfully
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Creating employee with email: john@example.com
+2026-07-23 19:52:14 INFO  com.ems.service.EmployeeServiceImpl - Employee created successfully with ID: 1
+2026-07-23 19:52:14 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:52:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-23 19:52:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-07-23 19:52:14 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-23 19:52:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-07-23 19:52:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

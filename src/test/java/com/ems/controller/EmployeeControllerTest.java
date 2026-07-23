@@ -1,20 +1,19 @@
-package com.ems.service;
+package com.ems.controller;
 
-import com.ems.controller.EmployeeController;
 import com.ems.dto.EmployeeRequest;
 import com.ems.dto.EmployeeResponse;
 import com.ems.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
@@ -29,14 +28,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // Import your SecurityConfig if needed
 // @Import(SecorityConfig.class)
 
-@SpringBootTest
+@WebMvcTest(EmployeeController.class)
 @AutoConfigureMockMvc(addFilters = false)
 class EmployeeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private EmployeeService employeeService;
 
     @Autowired
