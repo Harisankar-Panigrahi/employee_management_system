@@ -1,0 +1,16 @@
+[33m972ff76[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/security-jwt[m[33m, [m[1;31morigin/feature/security-jwt[m[33m)[m Add unit tests, controller tests, logging, file upload, Docker support, and project enhancements
+[33mf096a17[m feat: test the serviceimpl class
+[33m02ae44f[m feat: updating request class
+[33m96d5628[m feat: implement JWT authentication, employee management, file upload, Swagger, and Docker support
+[33mb521efe[m feat: implement JWT authentication, employee management, file upload, Swagger, and Docker support
+[33m00ac649[m Backup before migrating to Spring Boot 3
+[33m5298406[m Add Spring Security configuration
+[33me00ace0[m Configure Spring Security and SecurityFilterChain
+[33med9dce7[m Complete validation and exception handling
+[33m34f402b[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m add employee and update application.properties
+[33m4e2a3d4[m add employee and update application.properties
+[33m395cc41[m Create README.md
+[33m57d8e37[m add employee and update application.properties
+[33m817816b[m store changes
+[33m1a2716f[m Create Employee entity
+[33m33360b1[m store changes
